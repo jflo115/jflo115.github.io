@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1> Wrong Road <h1>
+      <p> import java.util.Scanner;
+import java.awt.Color;
+import enigma.console.*;
+import enigma.core.Enigma;
+public class testRunner
+{
+
+    public testRunner()
+    {
+       int guess;
+
+    }
+
+
+    public static void main(String[] args)
+
+    {
+        int guess;
+        String sguess;
+        String ans;
+
+        TextAttributes red = new TextAttributes(Color.RED, Color.BLACK);
+        TextAttributes green = new TextAttributes(Color.GREEN, Color.BLACK);
+        TextAttributes white = new TextAttributes(Color.WHITE, Color.BLACK);
+        boolean chk = false;
+        int score = 0;
+        test test = new test();
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("You're out alone and a serial killer is on the loose, you must hurry back.....");
+        boolean play = true;
+
+        s_console.setTextAttributes(red);
+        System.out.println("Type any key to continue :: ");
+        s_console.setTextAttributes(green);
+        keyboard.nextLine();
+        s_console.setTextAttributes(white);
+        System.out.println("You come across 5 roads and you must pick one to go on. You pray that the killer ain't on that road");
+        do
+        {
+
+
+        do
+        {
+            guess = test.guess();
+            sguess = "" + guess;
+            System.out.println(sguess);
+            s_console.setTextAttributes(red);
+            System.out.println("Pick a road :: ");
+            s_console.setTextAttributes(green);
+            ans = keyboard.nextLine();
+
+          if(!ans.equals("1" ) && !ans.equals("2" ) && !ans.equals("3" ) && !ans.equals("4" ) && !ans.equals("5" ))
+          {
+            do
+            {
+                s_console.setTextAttributes(red);
+                System.out.println("Pick an actual road dude :: ");
+                s_console.setTextAttributes(green);
+                ans = keyboard.nextLine();
+            }
+            while( !ans.equals("1" ) && !ans.equals("2" ) && !ans.equals("3" ) && !ans.equals("4" ) && !ans.equals("5" ));
+           }
+          if(ans.equals( sguess))
+          {
+               s_console.setTextAttributes(red);
+               System.out.println("nibba you died");
+               chk = true;
+               s_console.setTextAttributes(green);
+               System.out.println("Your score : " + score);
+               score = 0;
+               System.out.println("play again?... y or n");
+               String input = keyboard.nextLine();
+               if(input.equals("n") || input.equals("N"))
+               {
+                   play = false;
+               }
+          }
+          else
+          {
+              score++;
+              s_console.setTextAttributes(white);
+              System.out.println("You survived, but there's another 5 roads.... ");
+          }
+
+
+        }
+        while(!chk);
+
+
+    }
+        while(play);
+}
+    private static final Console s_console;
+    static
+    {
+        s_console = Enigma.getConsole("sup");
+    }
+}
+
+public class test
+{
+
+
+
+    public test()
+    {
+        int x;
+    }
+
+
+    public int guess()
+    {
+        int guess = (int)(Math.random()  * 5) + 1;
+        return guess;
+
+    }
+}
+ <p>
+  </body>
+</html>
