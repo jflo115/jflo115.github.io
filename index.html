@@ -153,85 +153,62 @@
           System.out.println("You come across 5 roads and you must pick one to go on. You pray that the killer ain't on that road"); <br />
           do <br />
           { <br />
-
-
-          do <br />
-          { <br />
-              guess = test.guess(); <br />
-              sguess = "" + guess; <br />
-              System.out.println(sguess); <br />
-              s_console.setTextAttributes(red); <br />
-              System.out.println("Pick a road :: "); <br />
-              s_console.setTextAttributes(green); <br />
-              ans = keyboard.nextLine(); <br />
-
-            if(!ans.equals("1" ) && !ans.equals("2" ) && !ans.equals("3" ) && !ans.equals("4" ) && !ans.equals("5" )) <br />
-            { <br />
+             <br />
               do <br />
               { <br />
-                  s_console.setTextAttributes(red); <br />
-                  System.out.println("Pick an actual road dude :: "); <br />
+                  guess = test.guess(); <br />
+                  sguess = "" + guess; <br />
+                  System.out.println(sguess); <br />
+                  s_console.setTextAttributes(red);  <br />
+                  System.out.println("Pick a road :: "); <br />
                   s_console.setTextAttributes(green); <br />
                   ans = keyboard.nextLine(); <br />
+                  <br />
+                  if(!ans.equals("1" ) && !ans.equals("2" ) && !ans.equals("3" ) && !ans.equals("4" ) && !ans.equals("5" )) <br />
+                  { <br />
+                      do <br />
+                      { <br />
+                          s_console.setTextAttributes(red); <br />
+                          System.out.println("Pick an actual road dude :: "); <br />
+                          s_console.setTextAttributes(green); <br />
+                          ans = keyboard.nextLine(); <br />
+                      } <br />
+                      while( !ans.equals("1" ) && !ans.equals("2" ) && !ans.equals("3" ) && !ans.equals("4" ) && !ans.equals("5" )); <br />
+                  } <br />
+                  if(ans.equals( sguess)) <br />
+                  { <br />
+                      s_console.setTextAttributes(red); <br />
+                      System.out.println("nibba you died"); <br />
+                      chk = true; <br />
+                      s_console.setTextAttributes(green); <br />
+                      System.out.println("Your score : " + score); <br />
+                      score = 0; <br />
+                      System.out.println("play again?... y or n"); <br />
+                      String input = keyboard.nextLine(); <br />
+                      if(input.equals("n") || input.equals("N")) <br />
+                      { <br />
+                          play = false; <br />
+                      } <br />
+                  } <br />
+                  else <br />
+                  {  <br />
+                      score++;  <br />
+                      s_console.setTextAttributes(white); <br />
+                      System.out.println("You survived, but there's another 5 roads.... "); <br />
+                  } <br />
+            <br />
               } <br />
-              while( !ans.equals("1" ) && !ans.equals("2" ) && !ans.equals("3" ) && !ans.equals("4" ) && !ans.equals("5" )); <br />
-             } <br />
-            if(ans.equals( sguess)) <br />
-            { <br />
-                 s_console.setTextAttributes(red); <br />
-                 System.out.println("nibba you died"); <br />
-                 chk = true; <br />
-                 s_console.setTextAttributes(green); <br />
-                 System.out.println("Your score : " + score); <br />
-                 score = 0; <br />
-                 System.out.println("play again?... y or n"); <br />
-                 String input = keyboard.nextLine(); <br />
-                 if(input.equals("n") || input.equals("N")) <br />
-                 { <br />
-                     play = false; <br />
-                 } <br />
-            } <br />
-            else <br />
-            { <br />
-                score++; <br />
-                s_console.setTextAttributes(white); <br />
-                System.out.println("You survived, but there's another 5 roads.... "); <br />
-            } <br />
-
-
+              while(!chk); <br />
+         <br />
           } <br />
-          while(!chk); <br />
-
-
-        }<br />
           while(play); <br />
-        } <br />
-        private static final Console s_console; <br />
-        static <br />
-        { <br />
+      }<br />
+      private static final Console s_console; <br />
+      static <br />
+      { <br />
           s_console = Enigma.getConsole("sup"); <br />
-        } <br />
-        } <br />
-
-        public class test <br />
-        { <br />
-
-
-
-        public test() <br />
-        { <br />
-          int x; <br />
-        } <br />
-
-
-        public int guess() <br />
-        { <br />
-          int guess = (int)(Math.random()  * 5) + 1; <br />
-          return guess; <br />
-
-        } <br />
-        }
-
+      } <br />
+  }        
 
 
 
