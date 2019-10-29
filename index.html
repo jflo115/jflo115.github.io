@@ -26,16 +26,16 @@
           String sguess;<br />
           String ans;<br />
 
-          <font color = "Grey"> //using Enigma, I set up variables that will call the colors I will use in program</font><br />
+          <font color = "Grey">//using Enigma, I set up variables that will call the colors I will use in program</font><br />
           TextAttributes red = new TextAttributes(Color.RED, Color.BLACK); <br />
           TextAttributes green = new TextAttributes(Color.GREEN, Color.BLACK);<br />
           TextAttributes white = new TextAttributes(Color.WHITE, Color.BLACK);<br />
-          boolean chk = false; <br />
-          int score = 0; <br />
+          boolean chk = false;  <font color = "Grey"> //this is what will check if player has survived, if true, player died</font><br />
+          int score = 0;<font color = "Grey">  //will keep score of player </font><br />
           test test = new test(); <br />
           Scanner keyboard = new Scanner(System.in); <br />
           System.out.println("You're out alone and a serial killer is on the loose, you must hurry back....."); <br />
-          boolean play = true; <br />
+          boolean play = true;<font color = "Grey"> //will check if program will end or not </font><br />
 
           s_console.setTextAttributes(red); <br />
           System.out.println("Type any key to continue :: "); <br />
@@ -56,7 +56,7 @@
               System.out.println("Pick a road :: "); <br />
               s_console.setTextAttributes(green); <br />
               ans = keyboard.nextLine(); <br />
-
+<font color = "Grey">            //checks if player actually picks a number 1-5, will not continue unless done so</font><br />
             if(!ans.equals("1" ) && !ans.equals("2" ) && !ans.equals("3" ) && !ans.equals("4" ) && !ans.equals("5" )) <br />
             {<br />
               do <br />
@@ -68,28 +68,29 @@
               } <br />
               while( !ans.equals("1" ) && !ans.equals("2" ) && !ans.equals("3" ) && !ans.equals("4" ) && !ans.equals("5" )); <br />
              } <br />
-            if(ans.equals( sguess)) <br />
+            if(ans.equals( sguess)) //If serial killer goes down same road as player, player dies<br />
             { <br />
                  s_console.setTextAttributes(red); <br />
-                 System.out.println("nibba you died"); <br />
+                 System.out.println("you died"); <br />
                  chk = true; <br />
                  s_console.setTextAttributes(green); <br />
                  System.out.println("Your score : " + score); <br />
                  score = 0; <br />
                  System.out.println("play again?... y or n"); <br />
                  String input = keyboard.nextLine(); <br />
+<font color = "Grey">                 //asks if player wants to go again, if n or N is typed, program will finish </font><br />
                  if(input.equals("n") || input.equals("N")) <br />
                  { <br />
                      play = false; <br />
                  } <br />
             } <br />
-            else <br />
+            else <font color = "Grey"> //if player survives </font><br />
             { <br />
-                score++; <br />
+                score++; <font color = "Grey"> //score goes up by 1 </font><br />
                 s_console.setTextAttributes(white); <br />
                 System.out.println("You survived, but there's another 5 roads.... "); <br />
             } <br />
-
+<font color = "Grey">            //player keeps picking road until eventual death </font><br />
 
           } <br />
           while(!chk); <br />
@@ -98,6 +99,7 @@
       } <br />
           while(play); <br />
   } <br />
+      //following will initialize/set up a new console in which we customized
       private static final Console s_console; <br />
       static <br />
       { <br />
@@ -115,7 +117,7 @@
           int x;  <br />
       } <br />
 
-
+<font color = "Grey">      // "Serial Killer" will guess a number </font><br />
       public int guess() <br />
       { <br />
           int guess = (int)(Math.random()  * 5) + 1; <br />
@@ -124,94 +126,6 @@
       } <br />
   } <br />
 
-        public testRunner() <br />
-        { <br />
-         int guess; <br />
-
-        } <br />
-
-
-        public static void main(String[] args) <br />
-
-        { <br />
-          int guess; <br />
-          String sguess; <br />
-          String ans; <br />
-
-          TextAttributes red = new TextAttributes(Color.RED, Color.BLACK); <br />
-          TextAttributes green = new TextAttributes(Color.GREEN, Color.BLACK); <br />
-          TextAttributes white = new TextAttributes(Color.WHITE, Color.BLACK); <br />
-          boolean chk = false; <br />
-          int score = 0; <br />
-          test test = new test(); <br />
-          Scanner keyboard = new Scanner(System.in); <br />
-          System.out.println("You're out alone and a serial killer is on the loose, you must hurry back....."); <br />
-          boolean play = true; <br />
-
-          s_console.setTextAttributes(red); <br />
-          System.out.println("Type any key to continue :: "); <br />
-          s_console.setTextAttributes(green); <br />
-          keyboard.nextLine(); <br />
-          s_console.setTextAttributes(white); <br />
-          System.out.println("You come across 5 roads and you must pick one to go on. You pray that the killer ain't on that road"); <br />
-          do <br />
-          { <br />
-             <br />
-              do <br />
-              { <br />
-                  guess = test.guess(); <br />
-                  sguess = "" + guess; <br />
-                  System.out.println(sguess); <br />
-                  s_console.setTextAttributes(red);  <br />
-                  System.out.println("Pick a road :: "); <br />
-                  s_console.setTextAttributes(green); <br />
-                  ans = keyboard.nextLine(); <br />
-                  <br />
-                  if(!ans.equals("1" ) && !ans.equals("2" ) && !ans.equals("3" ) && !ans.equals("4" ) && !ans.equals("5" )) <br />
-                  { <br />
-                      do <br />
-                      { <br />
-                          s_console.setTextAttributes(red); <br />
-                          System.out.println("Pick an actual road dude :: "); <br />
-                          s_console.setTextAttributes(green); <br />
-                          ans = keyboard.nextLine(); <br />
-                      } <br />
-                      while( !ans.equals("1" ) && !ans.equals("2" ) && !ans.equals("3" ) && !ans.equals("4" ) && !ans.equals("5" )); <br />
-                  } <br />
-                  if(ans.equals( sguess)) <br />
-                  { <br />
-                      s_console.setTextAttributes(red); <br />
-                      System.out.println("nibba you died"); <br />
-                      chk = true; <br />
-                      s_console.setTextAttributes(green); <br />
-                      System.out.println("Your score : " + score); <br />
-                      score = 0; <br />
-                      System.out.println("play again?... y or n"); <br />
-                      String input = keyboard.nextLine(); <br />
-                      if(input.equals("n") || input.equals("N")) <br />
-                      { <br />
-                          play = false; <br />
-                      } <br />
-                  } <br />
-                  else <br />
-                  {  <br />
-                      score++;  <br />
-                      s_console.setTextAttributes(white); <br />
-                      System.out.println("You survived, but there's another 5 roads.... "); <br />
-                  } <br />
-            <br />
-              } <br />
-              while(!chk); <br />
-         <br />
-          } <br />
-          while(play); <br />
-      }<br />
-      private static final Console s_console; <br />
-      static <br />
-      { <br />
-          s_console = Enigma.getConsole("sup"); <br />
-      } <br />
-  }
 
 
 
