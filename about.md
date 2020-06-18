@@ -2,6 +2,6 @@
 layout: default
 title: About
 ---
-#About page
+# About page
 
 This page tell you nothing...
