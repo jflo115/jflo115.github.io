@@ -4,7 +4,7 @@ title: About
 ---
 # About page
 
-Name: Justin Flores
+Name: Justin Flores <br />
 Age: 19
 Day of Birth: Feb 4, wish me a happy Bday when the time comes.
 
